@@ -1,0 +1,453 @@
+//	
+//	STRUCTURES 
+//	#################################################################################################### 
+//
+
+//	
+//	BOXES
+//	-------------------- 
+//
+.row {
+	@include relative-left;
+	width: 100%;
+	padding-top: $row-section-margin;
+	padding-bottom: $row-section-margin;
+}
+.bounded-content {
+	position: relative;
+	display: table;
+	height: 80%;
+	top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	@extend .t-gutters;
+	@extend .m-gutters;
+}
+.full-content {
+	position: relative;
+	display: table;
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.field-box {
+	@include relative-left;
+	@include clear;
+	width: 100%;
+	margin-bottom: $margin-size;
+}
+.vertical-center {
+	display: table-cell;
+	vertical-align: middle;
+}
+//Columns
+.no-gutters {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.remove-padding {
+	padding: 0;
+}
+//Mediaqueries
+@media only screen and (min-width: $desktop-breakpoint) {
+	.bounded-content {
+		width: $desktop-container;
+	}
+	.full-content {
+		padding-left: $row-section-margin;
+		padding-right: $row-section-margin;
+	}
+	@for $i from 1 through $total-columns {
+	  .d-col-#{$i} {
+	  	float: left;
+	    width: ($page-width / $total-columns) * $i;
+	  }
+	}
+	.d-col-1-4 {
+		@extend .d-col-3;
+		width: $page-width / 4;
+	}
+	.d-col-1-2 {
+		@extend .d-col-6;
+		width: $page-width / 2;
+	}
+	.d-col-1-3 {
+		@extend .d-col-4;
+		width: $page-width / 3;
+	}
+	.d-col-3-4 {
+		@extend .d-col-9;
+		width: $page-width - ($page-width / 4);
+	}
+	.d-col-full {
+		@extend .d-col-12;
+		width: $page-width;	
+	}
+	//Push & Pull
+	@for $i from 1 through $total-columns {
+	  .d-push-#{$i} {
+	    left: ($page-width / $total-columns) * $i;
+	  }
+	}
+	@for $i from 1 through $total-columns {
+	  .d-pull-#{$i} {
+	    left: (-$page-width / $total-columns) * $i;
+	  }
+	}
+	.d-no-push, 
+	.d-no-pull { 
+		left: auto; 
+	}
+	.d-gutters {
+	  padding-left: $margin-size;
+	  padding-right: $margin-size;
+	}
+	.d-gutter-left {
+	  padding-left: $margin-size;
+	}
+	.d-gutter-right {
+	  padding-right: $margin-size;
+	}
+	.d-half-gutters {
+		padding-left: $half-margin-size;
+	  padding-right: $half-margin-size;
+	}
+	.d-half-gutter-left {
+		padding-left: $half-margin-size;
+	}
+	.d-half-gutter-right {
+	  padding-right: $half-margin-size;
+	}
+}
+@media only screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+	.bounded-content {
+		width: 100%;
+	}
+	@for $i from 1 through $total-columns {
+	  .t-col-#{$i} {
+	  	float: left;
+	    width: ($page-width / $total-columns) * $i;
+	  }
+	}
+	.t-col-1-4 {
+		@extend .t-col-3;
+		width: $page-width / 4;
+	}
+	.t-col-1-2 {
+		@extend .t-col-6;
+		width: $page-width / 2;
+	}
+	.t-col-1-3 {
+		@extend .t-col-4;
+		width: $page-width / 3;
+	}
+	.t-col-3-4 {
+		@extend .t-col-9;
+		width: $page-width - ($page-width / 4);
+	}
+	.t-col-full {
+		@extend .t-col-12;
+		width: $page-width;	
+	}
+	//Push & Pull
+	@for $i from 1 through $total-columns {
+	  .t-push-#{$i} {
+	    left: ($page-width / $total-columns) * $i;
+	  }
+	}
+	@for $i from 1 through $total-columns {
+	  .t-pull-#{$i} {
+	    left: (-$page-width / $total-columns) * $i;
+	  }
+	}
+	.t-no-push, 
+	.t-no-pull { 
+		left: auto; 
+	}
+	.t-gutters {
+	  padding-left: $margin-size;
+	  padding-right: $margin-size;
+	}
+	.t-gutter-left {
+	  padding-left: $margin-size;
+	}
+	.t-gutter-right {
+	  padding-right: $margin-size;
+	}
+	.t-half-gutters {
+		padding-left: $half-margin-size;
+	  padding-right: $half-margin-size;
+	}
+	.t-half-gutter-left {
+		padding-left: $half-margin-size;
+	}
+	.t-half-gutter-right {
+	  padding-right: $half-margin-size;
+	}
+}
+@media only screen and (max-width: $mobile-breakpoint) {
+	body {
+		min-width: $min-width;
+	}
+	.bounded-content {
+		width: 100%;
+	}
+	@for $i from 1 through $total-columns {
+	  .m-col-#{$i} {
+	  	float: left;
+	    width: ($page-width / $total-columns) * $i;
+	  }
+	}
+	.m-col-1-4 {
+		@extend .m-col-3;
+		width: $page-width / 4;
+	}
+	.m-col-1-2 {
+		@extend .m-col-6;
+		width: $page-width / 2;
+	}
+	.m-col-1-3 {
+		@extend .m-col-4;
+		width: $page-width / 3;
+	}
+	.m-col-3-4 {
+		@extend .m-col-9;
+		width: $page-width - ($page-width / 4);
+	}
+	.m-col-full {
+		@extend .m-col-12;
+		width: $page-width;	
+	}
+	//Push & Pull
+	@for $i from 1 through $total-columns {
+	  .m-push-#{$i} {
+	    left: ($page-width / $total-columns) * $i;
+	  }
+	}
+	@for $i from 1 through $total-columns {
+	  .m-pull-#{$i} {
+	    left: (-$page-width / $total-columns) * $i;
+	  }
+	}
+	.m-no-push, 
+	.m-no-pull { 
+		left: auto; 
+	}
+	.m-gutters {
+	  padding-left: $margin-size;
+	  padding-right: $margin-size;
+	}
+	.m-gutter-left {
+	  padding-left: $margin-size;
+	}
+	.m-gutter-right {
+	  padding-right: $margin-size;
+	}
+	.m-half-gutters {
+		padding-left: $half-margin-size;
+	  padding-right: $half-margin-size;
+	}
+	.m-half-gutter-left {
+		padding-left: $half-margin-size;
+	}
+	.m-half-gutter-right {
+	  padding-right: $half-margin-size;
+	}
+}
+//	
+//	Images
+//	-------------------- 
+//
+	.front-image {
+		@include relative-left;
+		margin-bottom: $margin-size;
+		@extend .d-col-1-3;
+		@extend .d-push-4;
+		@extend .t-col-2;
+		@extend .t-push-5;
+		@extend .m-col-2;
+		@extend .m-push-5;
+		img {
+			position: relative;
+		}
+		&.small {
+			img {
+				@extend .d-col-2;
+				@extend .d-push-5;
+			}
+		}
+	}
+	@mixin full-screen-img($bg-img) {
+		background-image: $bg-img;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+//	
+//	Separators
+//	-------------------- 
+//
+.separator-border {
+	@include relative-left;
+	@include clear;
+	width: $double-margin-size;
+	height: 1px;
+	background-color: $text-color;
+	margin: $margin-size $double-margin-size $double-margin-size $double-margin-size;
+	@include advanced-horizontal-center($double-margin-size);
+}
+.quotes {
+	@include relative-left;
+	@include clear;
+	@extend .d-col-full;
+	@extend .t-col-full;
+	@extend .m-col-full;
+	margin-bottom: $double-margin-size;
+	height: 80px;
+	background-size: 80px;
+	background-image: url(../img/icons/quotes.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+//	
+//	Text boxes
+//	-------------------- 
+//
+h1, h2, h3, blockquote, p, ul, li {
+	@include relative-left;
+}
+h1,
+h2 {
+	@include relative-left;
+	@include clear;
+	margin-bottom: $margin-size;
+	@extend .d-col-full;
+	@extend .d-gutters;
+	@extend .t-col-full;
+	@extend .t-gutters;
+	@extend .m-col-full;
+	@extend .m-gutters;
+}
+p {
+	width: 100%;
+	@include clear;
+	margin-bottom: $margin-size;
+}
+blockquote {
+	@include relative-left;
+	@include clear;
+	@extend .d-col-full;
+	@extend .t-col-full;
+	@extend .m-col-full;
+}
+.author {
+	@include relative-left;
+	@extend .d-col-full;
+	@extend .t-col-full;
+	@extend .m-col-full;
+}
+ul,
+ul li {
+	@include relative-left;
+	@include clear;
+}
+ul {
+	@extend .d-col-1-2;
+	@extend .d-push-3;
+	@extend .t-col-full;
+	@extend .m-col-full;
+}
+ul li {
+	width: 100%;
+	margin-bottom: $margin-size;
+	list-style-position: inside;
+}
+//	
+//	Speaker
+//	-------------------- 
+//
+#pt-view,
+#speaker-notes {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	.bounded-content {
+		width: 100% !important;
+		top: 0;
+		height: 100%;
+	}
+}
+#pt-view {
+	left: 0;
+}
+#speaker-notes {
+	right: 0;
+	background-color: $bg-dark-color;
+	padding: 0 $margin-size;
+	overflow-y: auto;
+}
+#pt-view .bounded-content {
+	padding-left: $margin-size;
+	padding-right: $margin-size;
+}
+#pt-view #showMenu {
+	@include hide;
+}
+#speaker-notes .bounded-content {
+	background-color: $bg-lighter-color;
+	padding: $double-margin-size;
+}
+//	
+//	Menu
+//	-------------------- 
+//
+#showMenu {
+	cursor: pointer;
+	position: absolute;
+	top: $margin-size;
+	left: $margin-size;
+	z-index: 9999;
+}
+#section_indicator {
+	position: absolute;
+	top: $half-margin-size;
+	right: $margin-size;
+	z-index: 9999;
+	@include square-box(40px);
+	background-image: $section-indicator;
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: table;
+}
+#section_indicator p {
+	@include font-size(14);
+	@include square-box(40px);
+	margin-bottom: 0;
+	text-align: center;
+	color: $countertype-text-color;
+	display: table-cell;
+	vertical-align: middle;
+	padding-top: 3px; //fix optical vertical align
+	@include bold;
+}
+//	
+//	Section indicator
+//	-------------------- 
+//
+.section_number {
+	@include relative-left;
+	width: 100%;
+	top: - $double-margin-size;
+}
+.section_number p {
+	color: $countertype-text-color;
+	text-align: center;
+	background-image: $section_bg_img;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	@include font-size(48);
+}

@@ -1,0 +1,188 @@
+//	
+//	BASIC MIXINS & CLASSES
+//	#################################################################################################### 
+//
+// 	
+//	Typography
+//	-------------------- 
+//
+	@mixin font-size($size) {
+    font-size: $size + px;
+    font-size: ($size/16) + rem; //body base font 16px
+	}
+	@mixin line-height($size) {
+    line-height: $size + px;
+    line-height: ($size/16) + rem; 
+	}
+	.bold {
+		font-weight: 600;
+	}
+	@mixin bold {
+		font-weight: 600;
+	}
+	.italic {
+		font-style: italic;
+	}
+	@mixin italic {
+		font-style: italic;
+	}
+//	
+//	Position 
+//	-------------------- 
+//
+	@mixin relative-left {
+		position: relative;
+		float: left;
+	}
+	@mixin relative-right {
+  	position: relative;
+  	float: right;
+	}
+	@mixin basic-horizontal-center {
+  	margin-left: auto;
+  	margin-right: auto;
+	}
+	@mixin advanced-horizontal-center($width){
+		left: 50%;
+		margin-left: (-$width) / 2; 
+	}
+	@mixin vertical-center($height){
+  	top: 50%;
+  	margin-top: (-$height) / 2; 
+	}
+	@mixin visible {
+		opacity: 1;
+	}
+	@mixin invisible {
+		opacity: 0;
+	}
+	.visible {
+		@include visible;
+	}
+	.invisible {
+		@include invisible;
+	}
+	@mixin hide {
+		display: none;
+	}
+	@mixin show {
+		display: block;
+	}
+	.hide {
+		@include hide;
+	}
+	.show {
+		@include show;
+	}
+	@mixin clear {
+		clear: both;
+	}
+	@mixin no-clear {
+		clear: none;
+	}
+//	
+//	Space 
+//	-------------------- 
+//
+	@mixin border-bottom-with-space($size, $style, $color, $space){
+		border-bottom: $size $style $color;
+		margin-bottom: $space;
+		padding-bottom: $space;
+	}
+// 	
+//	Appearance 
+//	-------------------- 
+//
+	@mixin square-box($side-width) {
+		width: $side-width;
+		height: $side-width;
+	}
+	@mixin circle-box($diameter) {
+		width: $diameter;
+		height: $diameter;
+		-webkit-border-radius: 50%;
+  	-moz-border-radius: 50%;
+  	-ms-border-radius: 50%;
+  	-o-border-radius: 50%;
+  	border-radius: 50%;
+	}
+	@mixin rounded-corner($radius) {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+		-o-border-radius: $radius;
+		border-radius: $radius;
+	}
+	 @mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+  }
+	@mixin opacity($opacity) {
+		-moz-opacity: $opacity;
+		-webkit-opacity: $opacity;
+		opacity: $opacity;
+	}
+	@mixin rotate($deg) {
+		display: inline-block;
+  	width: auto;
+  	-webkit-transform: rotate($deg);
+  	-moz-transform: rotate($deg);
+  	-ms-transform: rotate($deg);
+  	-o-transform: rotate($deg);
+  	transform: rotate($deg);
+	}
+	@mixin box-shadow($string) {
+		-webkit-box-shadow: $string;
+		-moz-box-shadow: $string;
+		box-shadow: $string;
+	}
+	@mixin text-shadow($string) {
+		text-shadow: $string;
+	}
+	@mixin transform($string){
+		-webkit-transform: $string;
+		-moz-transform: $string;
+		-ms-transform: $string;
+		-o-transform: $string;
+		transform: $string;
+	}
+	@mixin transition($transition-property, $transition-time, $method) {
+  	-webkit-transition: $transition-property $transition-time $method;
+  	-moz-transition: $transition-property $transition-time $method;
+  	-ms-transition: $transition-property $transition-time $method;
+  	-o-transition: $transition-property $transition-time $method;
+  	transition: $transition-property $transition-time $method;
+	}
+	@mixin animation($name, $duration, $delay, $ease) {
+		-webkit-animation: $name $duration $delay $ease;
+		-moz-animation: $name $duration $delay $ease;
+		-ms-animation: $name $duration $delay $ease;
+	}
+	@mixin mediaqueries-animation($property1, $property2, $duration) {
+		animation-property: $property1;
+		animation-property: $property2;
+		transition-duration: $duration;
+		-webkit-animation-property: $property1;
+		-webkit-animation-property: $property2;
+		-webkit-transition-duration: $duration;
+		-moz-animation-property: $property1;
+		-moz-animation-property: $property2;
+		-moz-transition-duration: $duration;
+		-o-animation-property: $property1;
+		-o-animation-property: $property2;
+		-o-transition-duration: $duration;
+	}
+	@mixin gradient($startColor, $endColor) {
+		background-color: $startColor;
+		background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+		background: -webkit-linear-gradient(top, $startColor, $endColor);
+		background: -moz-linear-gradient(top, $startColor, $endColor);
+		background: -ms-linear-gradient(top, $startColor, $endColor);
+		background: -o-linear-gradient(top, $startColor, $endColor);
+	}
+	@mixin background-image( $img, $position:center, $repeat:no-repeat) {
+		background-image: $img;
+		background-position: $position;
+		background-repeat: $repeat;
+	}

@@ -1,0 +1,60 @@
+//	
+//	GENERAL VARIABLES 
+//	#################################################################################################### 
+//
+//	
+//	Layout
+//	-------------------- 
+//
+	$page-width: 100%;
+
+	$margin-size: 20px;
+	$half-margin-size: $margin-size / 2;
+	$quarter-margin-size: $half-margin-size / 2;
+	$margin-size-3-4: 15px;
+	$double-margin-size: $margin-size * 2;
+	$triple-margin-size: $margin-size * 3;
+	$row-section-margin: $margin-size * 4;
+
+	$total-columns: 12;
+
+	$min-width: 380px;
+  $mobile-container: 100%;
+  $tablet-container: 720px;
+  $desktop-container: 1200px;
+
+  $mobile-breakpoint: $tablet-container + ($margin-size - 1px);
+  $tablet-breakpoint: $tablet-container + $margin-size;
+  $desktop-breakpoint: $desktop-container;
+
+//
+//	Sizes
+//	-------------------- 
+//
+	
+//	
+//	Color 
+//	-------------------- 
+//
+	
+	$text-color: #444;
+	$countertype-text-color: #FFF;
+	$bg-lighter-color: white;
+	$bg-dark-color: #333;
+
+//
+//	Icons 
+//	-------------------- 
+//
+	$list-style: url('../img/icons/hexagon.svg');
+	$section-indicator: url('../img/icons/hexagon.svg');
+//
+//	Images 
+//	-------------------- 
+//
+	$bg-img-1: url('../img/photos/img_sample.png');
+	$section_bg_img: url('../img/icons/hexagon.svg');
+//
+//	Others 
+//	-------------------- 
+//

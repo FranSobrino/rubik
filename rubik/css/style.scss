@@ -1,0 +1,112 @@
+@import 'reset.css';
+@import 'smartfrontend';
+@import 'variables';
+@import 'typography';
+@import 'structures';
+@import 'forms_and_buttons';
+// 
+//	Selection colours 
+//	-------------------- 
+//
+	::selection {background: rgb(255,255,158);}
+	::-moz-selection {background: rgb(255,255,158);}
+	img::selection {background: transparent;}
+	img::-moz-selection {background: transparent;}
+	body {-webkit-tap-highlight-color: rgb(255,255,158);}
+//	
+//	GENERAL & BUG FIXES
+//	####################################################################################################
+//	
+	// Tim Pietrusky advanced checkbox hack (Android <= 4.1.2)
+	body{ -webkit-animation: bugfix infinite 1s; }
+	@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+//	
+//	MAIN STYLES
+//	####################################################################################################
+//
+body {
+	font-family: 'Open Sans', sans-serif;
+	@include normal-text-style($text-color);
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+}
+.pt-page-1 {
+	background-color: #0ac2d2;
+}
+.pt-page-2 {
+	background-color: white;
+}
+.pt-page-3 {
+	background-color: coral;
+}
+.pt-page-4 {
+	background-color: #fdc162;
+}
+.pt-page-5 {
+	background-color: #60d7a9;
+}
+.pt-page-6 {
+	background-color: #fd6a62;
+}
+.pt-page-7 {
+	background-color: #7bb7fa;
+}
+.pt-page-8 {
+	background-color: #f68dbb;
+}
+.pt-page-9 {
+	background-color: white;
+}
+#navigation_info {
+	@include relative-left;
+	@include clear;
+	margin-top: $triple-margin-size;
+	@extend .d-col-2;
+	@extend .d-gutters;
+	@extend .d-push-5;
+	@extend .t-col-2;
+	@extend .t-gutters;
+	@extend .t-push-5;
+	@extend .m-col-2;
+	@extend .m-push-5;
+	p {
+		position: relative;
+		width: 100%;
+		text-align: center;
+		@include small-text-style;
+	}
+	p img {
+		@include opacity(0.5);
+	}
+}
+//	
+//	SPECIFIC MEDIAQUERIES
+//	####################################################################################################
+//
+@media only screen and (min-width: $desktop-breakpoint) {
+	.section_number p {
+		width: 300px;
+		line-height: 300px;
+		@include advanced-horizontal-center(300px);
+	}
+}//
+@media only screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+	.pt-page-1 #navigation_info {
+		@include hide;
+	}
+	.section_number p {
+		width: 200px;
+		line-height: 200px;
+		@include advanced-horizontal-center(200px);
+	}
+}//
+@media only screen and (max-width: $mobile-breakpoint) {
+	.pt-page-1 #navigation_info {
+		@include hide;
+	}
+	.section_number p {
+		width: 100px;
+		line-height: 100px;
+		@include advanced-horizontal-center(100px);
+	}
+}//
